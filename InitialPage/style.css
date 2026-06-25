@@ -836,10 +836,10 @@ align-items:center;
 
 background:
 linear-gradient(
-    rgba(0,0,0,.35),
-    rgba(0,0,0,.35)
+    rgba(0,0,0,.08),
+    rgba(0,0,0,.08)
 ),
-url("img/hero-trashin.png");
+url("img/objetivos-bg.jpeg");
 
 background-size:cover;
 
@@ -966,4 +966,113 @@ line-height:1.8;
 
 color:#6B7280;
 
+}
+/* ==========================
+   FUNCIONALIDADES
+========================== */
+
+.features-hero{
+
+    height:70vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.45)
+    ),
+    url("img/funcionalidades-bg.jpeg");
+
+    background-size:cover;
+
+    background-position:center;
+    background-repeat: no-repeat;
+    color:white
+}
+
+.features-content{
+
+    color:white;
+
+    max-width:900px;
+
+    padding:20px;
+}
+
+.features-content span{
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+}
+
+.features-content h1{
+
+    margin-top:20px;
+
+    font-size:4rem;
+
+    font-family:'Roboto Slab', serif;
+}
+
+.features-section{
+
+    padding:100px 8%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+}
+
+.feature-card{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+}
+
+.feature-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+}
+
+.feature-card h2{
+
+    margin-bottom:15px;
+
+    color:var(--primary-color);
+
+    font-family:'Roboto Slab', serif;
+}
+
+.feature-card p{
+
+    line-height:1.8;
+
+    color:#6B7280;
 }
