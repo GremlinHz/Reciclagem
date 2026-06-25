@@ -36,11 +36,8 @@ async function login() {
 
     localStorage.setItem("user", JSON.stringify(user));
 
-    alert("Login realizado com sucesso!");
-
-    // 👉 agora vai para a página principal
     window.location.href = "/index.html";
   } else {
-    alert("Email ou senha inválidos");
+    alert("Login inválido");
   }
 }

@@ -25,6 +25,24 @@
 //   fs.writeFileSync('../users.json', JSON.stringify(lista))
 // }
 
+
+const form = document.querySelector('#cadastroForm')
+let nome = ''
+let email = ''
+let senha = 0
+let estado = ''
+let cidade = ''
+let isAReceiver = false
+form.addEventListener('submit', e => {
+  event.preventDefault()
+  nome = e.target.nome
+  email = e.target.email
+  senha = e.target.senha
+  estado = e.target.estado
+  cidade = e.target.cidade
+  isAReceiver = x
+})
+
 async function cadastrar() {
   const nome = document.querySelector("#nome").value;
   const email = document.querySelector("#email").value;
@@ -39,10 +57,10 @@ async function cadastrar() {
   });
 
   if (res.ok) {
-    alert("Cadastro realizado com sucesso!");
+    alert("Cadastro feito!");
     window.location.href = "/login/login.html";
   } else {
     const data = await res.json();
-    alert(data.error || "Erro ao cadastrar");
+    alert(data.error);
   }
 }

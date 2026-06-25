@@ -4,18 +4,11 @@ const path = require("path");
 
 const app = express();
 
-// =======================
-// CONFIG BÁSICA
-// =======================
 app.use(express.json());
 
-// serve o frontend inteiro
+// 🔗 conecta frontend ao backend
 app.use(express.static(path.join(__dirname, "../frontend")));
 
-
-// =======================
-// FUNÇÃO AUXILIAR (LER JSON)
-// =======================
 function readJSON(file) {
   return JSON.parse(fs.readFileSync(path.join(__dirname, file), "utf-8"));
 }
@@ -27,38 +20,32 @@ function writeJSON(file, data) {
   );
 }
 
-
-// =======================
-// CADASTRO
-// =======================
+// =====================
+// REGISTER
+// =====================
 app.post("/register", (req, res) => {
   const users = readJSON("users.json");
 
   const { nome, email, senha } = req.body;
 
-  const userExists = users.find(u => u.email === email);
+  const exists = users.find(u => u.email === email);
+  if (exists) return res.status(400).json({ error: "Usuário já existe" });
 
-  if (userExists) {
-    return res.status(400).json({ error: "Usuário já existe" });
-  }
-
-  const newUser = {
+  users.push({
     id: Date.now(),
     nome,
     email,
     senha
-  };
+  });
 
-  users.push(newUser);
   writeJSON("users.json", users);
 
   res.json({ ok: true });
 });
 
-
-// =======================
+// =====================
 // LOGIN
-// =======================
+// =====================
 app.post("/login", (req, res) => {
   const users = readJSON("users.json");
 
@@ -68,48 +55,16 @@ app.post("/login", (req, res) => {
     u => u.email === email && u.senha === senha
   );
 
-  if (!user) {
-    return res.status(401).json({ error: "Login inválido" });
-  }
+  if (!user) return res.status(401).json({ error: "Login inválido" });
 
   res.json(user);
 });
 
-
-// =======================
-// PEGAR USUÁRIOS (DEBUG / RANKING)
-// =======================
+// =====================
 app.get("/users", (req, res) => {
-  const users = readJSON("users.json");
-  res.json(users);
+  res.json(readJSON("users.json"));
 });
 
-
-// =======================
-// SALVAR PONTOS (MAPA FUTURO)
-// =======================
-app.post("/points", (req, res) => {
-  const points = readJSON("points.json");
-
-  const { lat, lng, userId } = req.body;
-
-  const newPoint = {
-    id: Date.now(),
-    lat,
-    lng,
-    userId
-  };
-
-  points.push(newPoint);
-  writeJSON("points.json", points);
-
-  res.json({ ok: true });
-});
-
-
-// =======================
-// START SERVER
-// =======================
 app.listen(3000, () => {
-  console.log("Servidor rodando em http://localhost:3000");
+  console.log("rodando em http://localhost:3000");
 });
