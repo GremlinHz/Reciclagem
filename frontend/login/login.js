@@ -19,11 +19,18 @@
 //   localStorage.setItem('current_user', JSON.stringify(usuarioLogado));
 // }
 
-async function login() {
+document.querySelector('.form').addEventListener('submit', async e => {
+  e.preventDefault()
   const email = document.querySelector("#email").value;
   const senha = document.querySelector("#senha").value;
 
-  const res = await fetch("/login", {
+  await login(email, senha)
+})
+
+async function login(email, senha) {
+  console.log('oi')
+
+  const res = await fetch("http://localhost:3000/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -31,13 +38,19 @@ async function login() {
     body: JSON.stringify({ email, senha })
   });
 
-  if (res.ok) {
-    const user = await res.json();
-
-    localStorage.setItem("user", JSON.stringify(user));
-
-    window.location.href = "/index.html";
-  } else {
-    alert("Login inválido");
+  try{
+    res
+    if (res.ok) {
+      const user = await res.json();
+  
+      localStorage.setItem("user", JSON.stringify(user));
+  
+      window.location.href = "../pontosColeta/pontos_coleta.html";
+      console.log('oi')
+    } else {
+      alert("Login inválido");
+    }
+  } catch {
+    console.log('catched')
   }
 }

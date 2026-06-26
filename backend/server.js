@@ -1,10 +1,12 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const cors = require("cors")
 
 const app = express();
-
+app.use(cors())
 app.use(express.json());
+
 
 // 🔗 conecta frontend ao backend
 app.use(express.static(path.join(__dirname, "../frontend")));
@@ -26,16 +28,18 @@ function writeJSON(file, data) {
 app.post("/register", (req, res) => {
   const users = readJSON("users.json");
 
-  const { nome, email, senha } = req.body;
+  const { nome, email, senha, estado, cidade, isAReceiver } = req.body;
 
   const exists = users.find(u => u.email === email);
   if (exists) return res.status(400).json({ error: "Usuário já existe" });
 
   users.push({
-    id: Date.now(),
     nome,
     email,
-    senha
+    senha,
+    estado,
+    cidade,
+    isAReceiver
   });
 
   writeJSON("users.json", users);
@@ -51,9 +55,9 @@ app.post("/login", (req, res) => {
 
   const { email, senha } = req.body;
 
-  const user = users.find(
-    u => u.email === email && u.senha === senha
-  );
+    const user = users.find(
+      u => u.email === email && u.senha === senha
+    );
 
   if (!user) return res.status(401).json({ error: "Login inválido" });
 
