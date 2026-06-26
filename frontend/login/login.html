@@ -51,7 +51,7 @@
                 realize seu login.
             </p>
 
-            <form>
+            <form class="form">
 
                 <div class="input-group">
 
@@ -60,6 +60,8 @@
                     <input
                         type="email"
                         placeholder="Digite seu email"
+                        id="email"
+                        required
                     >
 
                 </div>
@@ -71,6 +73,8 @@
                     <input
                         type="password"
                         placeholder="Digite sua senha"
+                        id="senha"
+                        required
                     >
 
                 </div>
@@ -82,9 +86,7 @@
                     </a>
 
                     <button
-                     type="button"
-                     onclick="window.location.href='../pontosColeta/pontos_coleta.html'">
-
+                     type="submit">
                      Entrar
 
                     </button>
@@ -101,7 +103,7 @@
 
 
 
-  <script src="app.js"></script>
+  <script src="login.js"></script>
   
 </body>
 </html>

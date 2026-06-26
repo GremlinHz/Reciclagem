@@ -967,3 +967,7 @@ line-height:1.8;
 color:#6B7280;
 
 }
+
+.leaflet-control-attribution {
+    display: none;
+}
