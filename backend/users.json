@@ -1,18 +1,2 @@
 [
-  {
-    "nome": "Lucas Blanco",
-    "email": "lucasbonettebl@gmail.com",
-    "senha": "123",
-    "estado": "PI",
-    "cidade": "Teresina",
-    "isAReceiver": false
-  },
-  {
-    "nome": "ALESSANDRA BONETTE BLANCO",
-    "email": "alessandra@gmail.com",
-    "senha": "123",
-    "estado": "PI",
-    "cidade": "Teresina",
-    "isAReceiver": true
-  }
 ]

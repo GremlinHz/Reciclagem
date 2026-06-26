@@ -39,7 +39,8 @@ app.post("/register", (req, res) => {
     senha,
     estado,
     cidade,
-    isAReceiver
+    isAReceiver,
+    score: 0
   });
 
   writeJSON("users.json", users);
