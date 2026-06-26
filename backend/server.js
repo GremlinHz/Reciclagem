@@ -71,4 +71,5 @@ app.get("/users", (req, res) => {
 
 app.listen(3000, () => {
   console.log("rodando em http://localhost:3000");
-});
+});  
+   
