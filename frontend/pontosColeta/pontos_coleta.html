@@ -9,7 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
 <link rel="stylesheet" href="../style.css">
 
 <title>Pontos de Descarte</title>
@@ -73,7 +75,7 @@
 
     <section class="map-container">
 
-        <div class="map-placeholder">
+        <div class="map-placeholder" id="map">
 
             MAPA INTERATIVO
 
@@ -82,42 +84,48 @@
     </section>
 
     <aside class="sidebar-right">
+        <form class="form">
+            <h2>Localização</h2>
+    
+            <div class="input-group">
+    
+                <label>Estado</label>
+                <input type="text" name="estado">
+    
+            </div>
+    
+            <div class="input-group">
+    
+                <label>Cidade</label>
+                <input type="text" name="city">
+    
+            </div>
+    
+            <div class="input-group">
+    
+                <label>CEP</label>
+    
+                <input name="cep" type="text">
+    
+                <small>
+                    Opcional. Informe o CEP para encontrarmos pontos mais próximos da sua localização.
+                </small>
+    
+            </div>
+    
+            <button type="submit">
+                Buscar Pontos
+            </button>
+        </form>
 
-        <h2>Localização</h2>
-
-        <div class="input-group">
-
-            <label>Estado</label>
-            <input type="text">
-
-        </div>
-
-        <div class="input-group">
-
-            <label>Cidade</label>
-            <input type="text">
-
-        </div>
-
-        <div class="input-group">
-
-            <label>CEP</label>
-
-            <input type="text">
-
-            <small>
-                Opcional. Informe o CEP para encontrarmos pontos mais próximos da sua localização.
-            </small>
-
-        </div>
-
-        <button>
-            Buscar Pontos
-        </button>
 
     </aside>
 
 </main>
 
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+ <script src="pontos_coleta.js"></script>
 </body>
 </html>
