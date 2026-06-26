@@ -33,34 +33,38 @@ let senha = 0
 let estado = ''
 let cidade = ''
 let isAReceiver = false
-form.addEventListener('submit', e => {
-  event.preventDefault()
-  nome = e.target.nome
-  email = e.target.email
-  senha = e.target.senha
-  estado = e.target.estado
-  cidade = e.target.cidade
-  isAReceiver = x
+form.addEventListener('submit', async e => {
+  e.preventDefault()
+  nome = e.target.nome.value
+  email = e.target.email.value
+  senha = e.target.senha.value
+  estado = e.target.estado.value
+  cidade = e.target.cidade.value
+  if(e.target.select.value == "receber") isAReceiver = true 
+  console.log({ nome, email, senha, estado, cidade, isAReceiver })
+  
+  await cadastrar()
 })
 
 async function cadastrar() {
-  const nome = document.querySelector("#nome").value;
-  const email = document.querySelector("#email").value;
-  const senha = document.querySelector("#senha").value;
-
-  const res = await fetch("/register", {
+  const res = await fetch("http://localhost:3000/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ nome, email, senha })
+    body: JSON.stringify({ nome, email, senha, estado, cidade, isAReceiver })
   });
 
-  if (res.ok) {
-    alert("Cadastro feito!");
-    window.location.href = "/login/login.html";
-  } else {
-    const data = await res.json();
-    alert(data.error);
+  try {
+    res
+    if (res.ok) {
+      alert("Cadastro feito!");
+      window.location.href = "/frontend/login/login.html";
+    } else {
+      const data = await res.json();
+      console.log('ja foi')
+    }
+  } catch (error) {
+    
   }
 }
