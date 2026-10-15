@@ -836,10 +836,10 @@ align-items:center;
 
 background:
 linear-gradient(
-    rgba(0,0,0,.35),
-    rgba(0,0,0,.35)
+    rgba(0,0,0,.80),
+    rgba(0,0,0,.80)
 ),
-url("img/hero-trashin.png");
+url("/img/hero-trashin.jpeg");
 
 background-size:cover;
 
