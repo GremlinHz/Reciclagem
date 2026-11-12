@@ -49,6 +49,24 @@ body{
    NAVBAR
    ========================== */
 
+/* nav {
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.nav-links li:last-child {
+    right: 0;
+} */
+
+.login {
+    padding: 2rem;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #29a729;
+    font-weight: bold;
+}
+
 .navbar{
 
     width:100%;
@@ -67,6 +85,8 @@ body{
 
     box-shadow:
     0 2px 12px rgba(0,0,0,.04);
+
+    border-bottom: 1px #000 solid;
 }
 
 .logo{

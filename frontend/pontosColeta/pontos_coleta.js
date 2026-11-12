@@ -138,3 +138,4 @@ async function buscarCoordenadasPorCidadeEEstado(cidade, estado) {
 
 
 
+// criar lista de prioridade: primeiro cep, depois cidade e entao estado
