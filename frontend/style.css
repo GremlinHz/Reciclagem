@@ -67,6 +67,14 @@ body{
     font-weight: bold;
 }
 
+.logout-btn {
+    padding: 2rem;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #29a729;
+    font-weight: bold;
+}
+
 .navbar{
 
     width:100%;
@@ -118,6 +126,8 @@ body{
     font-weight:600;
 
     transition:.3s;
+
+    font-size: 1.2rem;
 }
 
 .nav-links a:hover{
